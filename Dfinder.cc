@@ -185,6 +185,7 @@ class Dfinder : public edm::EDAnalyzer
             DInfoBranches &DInfo, 
             std::vector<pat::GenericParticle> input_tracks, 
             reco::Vertex thePrimaryV,
+			reco::Vertex theBeamSpotV,	
 			vector<Track> lst,
 			vector<TrackXYZP2> lstXYZP2,
             std::vector<int> &D_counter,
@@ -284,7 +285,7 @@ class Dfinder : public edm::EDAnalyzer
 
 void Dfinder::beginJob()
 {//{{{
-   // auto t0 = std::chrono::high_resolution_clock::now();
+    //auto t0 = std::chrono::high_resolution_clock::now();
     
 	root = fs->make<TTree>("root","root");
     ntD1 = fs->make<TTree>("ntDkpi","");           Dntuple->buildDBranch(ntD1);
@@ -701,7 +702,7 @@ void Dfinder::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
                         PermuVec = GetPermu(InVec);
                         PermuVec = DelDuplicate(PermuVec);
                         for(unsigned int i = 0; i < PermuVec.size(); i++){
-                            Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV,lst,lstXYZP2, D_counter, d0_mass_window, -1, -1, false, false, 1, 0);
+                            Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV, theBeamSpotV,lst,lstXYZP2, D_counter, d0_mass_window, -1, -1, false, false, 1, 0);
                         }
                         //Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV, isNeededTrackIdx, D_counter, d0_mass_window, InVec, -1, -1, false, false, 1, 1);
                     }
@@ -718,7 +719,7 @@ void Dfinder::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
                         PermuVec = GetPermu(InVec);
                         PermuVec = DelDuplicate(PermuVec);
                         for(unsigned int i = 0; i < PermuVec.size(); i++){
-                            Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV,lst,lstXYZP2, D_counter, d0_mass_window, -1, -1, false, false, 2, 0);
+                            Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV, theBeamSpotV,lst,lstXYZP2, D_counter, d0_mass_window, -1, -1, false, false, 2, 0);
                         }
                         //Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV, isNeededTrackIdx, D_counter, d0_mass_window, InVec, -1, -1, false, false, 2, 1);
                     }
@@ -738,7 +739,7 @@ void Dfinder::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
                         PermuVec = GetPermu(InVec);
                         PermuVec = DelDuplicate(PermuVec);
                         for(unsigned int i = 0; i < PermuVec.size(); i++){
-                            Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV,lst,lstXYZP2, D_counter, dplus_mass_window, -1, -1, false, false, 3, 0);
+                            Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV, theBeamSpotV,lst,lstXYZP2, D_counter, dplus_mass_window, -1, -1, false, false, 3, 0);
                         }
                         //Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV, isNeededTrackIdx, D_counter, dplus_mass_window, InVec, -1, -1, false, false, 3, 1);
                     }
@@ -757,7 +758,7 @@ void Dfinder::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
                         PermuVec = GetPermu(InVec);
                         PermuVec = DelDuplicate(PermuVec);
                         for(unsigned int i = 0; i < PermuVec.size(); i++){
-                            Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV,lst,lstXYZP2, D_counter, dplus_mass_window, -1, -1, false, false, 4, 0);
+                            Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV, theBeamSpotV,lst,lstXYZP2, D_counter, dplus_mass_window, -1, -1, false, false, 4, 0);
                         }
                         //Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV, isNeededTrackIdx, D_counter, dplus_mass_window, InVec, -1, -1, false, false, 4, 1);
                     }
@@ -778,7 +779,7 @@ void Dfinder::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
                         PermuVec = GetPermu(InVec);
                         PermuVec = DelDuplicate(PermuVec);
                         for(unsigned int i = 0; i < PermuVec.size(); i++){
-                            Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV,lst,lstXYZP2, D_counter, d0_mass_window, -1, -1, false, false, 5, 0);
+                            Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV, theBeamSpotV,lst,lstXYZP2, D_counter, d0_mass_window, -1, -1, false, false, 5, 0);
                         }
                         //Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV, isNeededTrackIdx, D_counter, d0_mass_window, InVec, -1, -1, false, false, 5, 1);
                     }
@@ -799,7 +800,7 @@ void Dfinder::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
                         PermuVec = GetPermu(InVec);
                         PermuVec = DelDuplicate(PermuVec);
                         for(unsigned int i = 0; i < PermuVec.size(); i++){
-                            Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV,lst,lstXYZP2, D_counter, d0_mass_window, -1, -1, false, false, 6, 0);
+                            Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV, theBeamSpotV,lst,lstXYZP2, D_counter, d0_mass_window, -1, -1, false, false, 6, 0);
                         }
                         //Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV, isNeededTrackIdx, D_counter, d0_mass_window, InVec, -1, -1, false, false, 6, 1);
                     }
@@ -821,7 +822,7 @@ void Dfinder::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
                         //for(unsigned int i = 0; i < PermuVec.size(); i++){
                         //    Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV, isNeededTrackIdx, D_counter, dsubs_mass_window, PermuVec[i], PHI_MASS, 0.1, false, false, 7, 0);
                         //}
-                        Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV,lst,lstXYZP2, D_counter, dsubs_mass_window, PHI_MASS, 0.1, false, false, 7, 1);
+                        Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV, theBeamSpotV,lst,lstXYZP2, D_counter, dsubs_mass_window, PHI_MASS, 0.1, false, false, 7, 1);
                     }
                     //////////////////////////////////////////////////////////////////////////
                     // RECONSTRUCTION: K+K-(Phi)pi-
@@ -840,7 +841,7 @@ void Dfinder::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
                         //for(unsigned int i = 0; i < PermuVec.size(); i++){
                         //    Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV, isNeededTrackIdx, D_counter, dsubs_mass_window, PermuVec[i], PHI_MASS, 0.1, false, false, 8, 0);
                         //}
-                        Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV,lst,lstXYZP2, D_counter, dsubs_mass_window, PHI_MASS, 0.1, false, false, 8, 1);
+                        Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV, theBeamSpotV,lst,lstXYZP2, D_counter, dsubs_mass_window, PHI_MASS, 0.1, false, false, 8, 1);
                     }
                     //////////////////////////////////////////////////////////////////////////
                     // RECONSTRUCTION: D0(K-pi+)pi+
@@ -860,7 +861,7 @@ void Dfinder::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
                         //for(unsigned int i = 0; i < PermuVec.size(); i++){
                         //    Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV, isNeededTrackIdx, D_counter, dstar_mass_window, PermuVec[i], D0_MASS, 0.1, false, true, 9, 0);
                         //}
-                        Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV,lst,lstXYZP2, D_counter, dstar_mass_window, D0_MASS, 0.1, false, true, 9, 1);
+                        Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV, theBeamSpotV,lst,lstXYZP2, D_counter, dstar_mass_window, D0_MASS, 0.1, false, true, 9, 1);
                     }
                     //////////////////////////////////////////////////////////////////////////
                     // RECONSTRUCTION: D0bar(K+pi-)pi-
@@ -879,7 +880,7 @@ void Dfinder::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
                         //for(unsigned int i = 0; i < PermuVec.size(); i++){
                         //    Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV, isNeededTrackIdx, D_counter, dstar_mass_window, PermuVec[i], D0_MASS, 0.1, false, true, 10, 0);
                         //}
-                        Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV,lst,lstXYZP2, D_counter, dstar_mass_window, D0_MASS, 0.1, false, true, 10, 1);
+                        Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV, theBeamSpotV,lst,lstXYZP2, D_counter, dstar_mass_window, D0_MASS, 0.1, false, true, 10, 1);
                     }
 
                     //////////////////////////////////////////////////////////////////////////
@@ -903,7 +904,7 @@ void Dfinder::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
                         //for(unsigned int i = 0; i < PermuVec.size(); i++){
                         //    Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV, isNeededTrackIdx, D_counter, dstar_mass_window, PermuVec[i], D0_MASS, 0.1, false, true, 11, 0);
                         //}
-                        Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV,lst,lstXYZP2, D_counter, dstar_mass_window, D0_MASS, 0.1, false, true, 11, 1);
+                        Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV,theBeamSpotV,lst,lstXYZP2, D_counter, dstar_mass_window, D0_MASS, 0.1, false, true, 11, 1);
                     }
 
                     //////////////////////////////////////////////////////////////////////////
@@ -927,7 +928,7 @@ void Dfinder::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
                         //for(unsigned int i = 0; i < PermuVec.size(); i++){
                         //    Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV, isNeededTrackIdx, D_counter, dstar_mass_window, PermuVec[i], D0_MASS, 0.1, false, true, 12, 0);
                         //}
-                        Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV,lst,lstXYZP2, D_counter, dstar_mass_window, D0_MASS, 0.1, false, true, 12, 1);
+                        Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV,theBeamSpotV,lst,lstXYZP2, D_counter, dstar_mass_window, D0_MASS, 0.1, false, true, 12, 1);
                     }
                     //////////////////////////////////////////////////////////////////////////
                     // RECONSTRUCTION: D0bar(K+pi-)pi+
@@ -945,7 +946,7 @@ void Dfinder::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
                         InVec.push_back(tk3);
                         PermuVec = GetPermu(InVec);
                         PermuVec = DelDuplicate(PermuVec);
-                        Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV,lst,lstXYZP2, D_counter, bplus_mass_window, D0_MASS, 0.1, false, true, 13, 1);
+                        Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV,theBeamSpotV,lst,lstXYZP2, D_counter, bplus_mass_window, D0_MASS, 0.1, false, true, 13, 1);
                     }
                     //////////////////////////////////////////////////////////////////////////
                     // RECONSTRUCTION: D0(K-pi+)pi-
@@ -961,7 +962,7 @@ void Dfinder::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
                         InVec.push_back(tk3);
                         PermuVec = GetPermu(InVec);
                         PermuVec = DelDuplicate(PermuVec);
-                        Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV,lst,lstXYZP2, D_counter, bplus_mass_window, D0_MASS, 0.1, false, true, 14, 1);
+                        Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV,theBeamSpotV,lst,lstXYZP2, D_counter, bplus_mass_window, D0_MASS, 0.1, false, true, 14, 1);
                     }
                    ///////////////////////////////////////////////////////////////////////////
                    //RECONSTRUCTION: pi+p+k-(for lambda_C)
@@ -983,7 +984,7 @@ void Dfinder::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
                         //PermuVec = GetPermu(InVec);
                         //PermuVec = DelDuplicate(PermuVec);
                         //for(unsigned int i = 0; i < PermuVec.size(); i++){
-                            Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV,lst,lstXYZP2, D_counter, lambdaC_mass_window, -1, -1, false, false, 15, method);
+                            Dfinder::BranchOutNTk( DInfo, input_tracks, thePrimaryV,theBeamSpotV,lst,lstXYZP2, D_counter, lambdaC_mass_window, -1, -1, false, false, 15, method);
                         //}
                     }
                    ///////////////////////////////////////////////////////////////////////////
@@ -1115,9 +1116,12 @@ void Dfinder::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
                         TrackInfo.pixelhit       [TrackInfo.size] = tk_it->track()->hitPattern().numberOfValidPixelHits();
                         TrackInfo.nStripLayer    [TrackInfo.size] = tk_it->track()->hitPattern().stripLayersWithMeasurement();
                         TrackInfo.nPixelLayer    [TrackInfo.size] = tk_it->track()->hitPattern().pixelLayersWithMeasurement();
-                        TrackInfo.fpbarrelhit    [TrackInfo.size] = tk_it->track()->hitPattern().hasValidHitInFirstPixelBarrel();
-                        TrackInfo.fpendcaphit    [TrackInfo.size] = tk_it->track()->hitPattern().hasValidHitInFirstPixelEndcap();
-                        TrackInfo.chi2           [TrackInfo.size] = tk_it->track()->chi2();
+						//TrackInfo.fpbarrelhit    [TrackInfo.size] = tk_it->track()->hitPattern().hasValidHitInFirstPixelBarrel();
+						//TrackInfo.fpendcaphit    [TrackInfo.size] = tk_it->track()->hitPattern().hasValidHitInFirstPixelEndcap();
+						TrackInfo.fpbarrelhit    [TrackInfo.size] = tk_it->track()->hitPattern().hasValidHitInPixelLayer(PixelSubdetector::PixelBarrel,1);
+						TrackInfo.fpendcaphit    [TrackInfo.size] = tk_it->track()->hitPattern().hasValidHitInPixelLayer(PixelSubdetector::PixelEndcap,1);
+						
+						TrackInfo.chi2           [TrackInfo.size] = tk_it->track()->chi2();
                         TrackInfo.ndf            [TrackInfo.size] = tk_it->track()->ndof();
                         TrackInfo.d0             [TrackInfo.size] = tk_it->track()->d0();
                         TrackInfo.d0error        [TrackInfo.size] = tk_it->track()->d0Error();
@@ -1226,7 +1230,7 @@ void Dfinder::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
             for(std::vector<reco::GenParticle>::const_iterator it_gen=gens->begin();
                 it_gen != gens->end(); it_gen++){
 		//	cout<<"particles id "<<it_gen->pdgId()<<" , status = "<<it_gen->status()<<endl ;//I tested that the daughter particles are really in the list.
-                if (it_gen->status() > 2 && it_gen->status() != 8) continue;//only status 1, 2, 8(simulated)
+                //if (it_gen->status() > 2 && it_gen->status() != 8) continue;//only status 1, 2, 8(simulated)
                 if(GenInfo.size >= MAX_GEN){
                     fprintf(stderr,"ERROR: number of gens exceeds the size of array.\n");
                     break;;
@@ -1286,10 +1290,10 @@ void Dfinder::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 				//	cout<<" isGenSignal "<<isGenSignal<<" ID "<<abs(it_gen->pdgId())<<endl;
                 }//all pi and K from b or c meson
 				
-				if( !isGenSignal && abs(it_gen->pdgId()) > 400 ){ //should be OK to require the PID > 400
+				if( !isGenSignal){ //should be OK to require the PID > 400
 					reco::GenParticle _deRef = (*it_gen);
 					reco::Candidate* Myself = dynamic_cast<reco::Candidate*>(&_deRef);
-					isGenSignal = Functs.GetDescendant(Myself, 4);
+					isGenSignal = Functs.GetDescendant(Myself, 41);
 				}//other particles (with pid > 400) have D meson in descendant chain
                 
 ///////here I want to test///
@@ -1339,7 +1343,10 @@ void Dfinder::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
                 GenInfo.index[GenInfo.size]         = GenInfo.size;
                 GenInfo.handle_index[GenInfo.size]  = it_gen-gens->begin();
                 GenInfo.pt[GenInfo.size]            = it_gen->pt();
-                GenInfo.eta[GenInfo.size]           = it_gen->eta();
+                GenInfo.px[GenInfo.size]            = it_gen->px();
+				GenInfo.py[GenInfo.size]            = it_gen->py();
+				GenInfo.pz[GenInfo.size]            = it_gen->pz();
+				GenInfo.eta[GenInfo.size]           = it_gen->eta();
                 GenInfo.phi[GenInfo.size]           = it_gen->phi();
                 GenInfo.mass[GenInfo.size]          = it_gen->mass();
                 GenInfo.pdgId[GenInfo.size]         = it_gen->pdgId();
@@ -1459,6 +1466,11 @@ void Dfinder::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
                 << "\n" << err.what() << "\n";
     }//catch 
     root->Fill();
+/*
+	auto t1 = std::chrono::high_resolution_clock::now(); 
+	double dt = 1e-3 * std::chrono::duration_cast<chrono::microseconds>(t1 - t0).count();
+	std::cout<<"duration: "<<dt<<std::endl;
+*/
 /*	
 	auto t1 = std::chrono::high_resolution_clock::now(); 
 	double dt = 1e-3 * std::chrono::duration_cast<chrono::microseconds>(t1 - t0).count();
@@ -1590,7 +1602,7 @@ void Dfinder::TkCombinationPermutation_Lc_v3(
 	int tk2_hindex = -1;
 	int tk3_hindex = -1;
 	
-	
+    //auto t0 = std::chrono::high_resolution_clock::now();	
 	int number_NeededTrack = (int) lst.size();
 	for(int tk1idx = 0; tk1idx < number_NeededTrack; tk1idx++){
 		const TrackXYZP2& tr1 = lstXYZP2[tk1idx];
@@ -1637,7 +1649,11 @@ void Dfinder::TkCombinationPermutation_Lc_v3(
 		}//tk2id
 	}//tk1id
 	//std::cout<<"TkCombinationPermutation, selectedTkhidxSet.size: "<<selectedTkhidxSet.size()<<std::endl;
-
+/*
+	auto t1 = std::chrono::high_resolution_clock::now(); 
+	double dt = 1e-3 * std::chrono::duration_cast<chrono::microseconds>(t1 - t0).count();
+	std::cout<<"duration: "<<dt<<std::endl;
+*/
     if (printFill_Info_)
 	{
 		//if want to do the counter, this part needs to be modified.
@@ -1656,6 +1672,7 @@ void Dfinder::BranchOutNTk(//input 2~4 tracks
     DInfoBranches &DInfo, 
     std::vector<pat::GenericParticle> input_tracks, 
     reco::Vertex thePrimaryV,
+	reco::Vertex theBeamSpotV,
 	vector<Track> lst,
 	vector<TrackXYZP2> lstXYZP2,
     std::vector<int> &D_counter,
@@ -1681,7 +1698,7 @@ void Dfinder::BranchOutNTk(//input 2~4 tracks
 	
 	float chi = 0.;
 	float ndf = 0.;
-
+    //auto t0 = std::chrono::high_resolution_clock::now();
     //particle factory: produce transient tracks
     KinematicParticleFactoryFromTransientTrack pFactory;
     VirtualKinematicParticleFactory vFactory;
@@ -1698,6 +1715,14 @@ void Dfinder::BranchOutNTk(//input 2~4 tracks
     RefCountedKinematicParticle     tktkRes_VFP;
     RefCountedKinematicVertex       tktkRes_VFPvtx;
 
+	//for DCA and it error 
+	const MagneticField *field = bField.product();
+	AnalyticalImpactPointExtrapolator extrapolator(field);
+	TransverseImpactPointExtrapolator transverseExtrapolator(field);
+	TrajectoryStateOnSurface tsos;
+	TrajectoryStateOnSurface tsos_2D;
+    //////
+	
     TLorentzVector v4_tk;
     std::vector<TLorentzVector> tktk_4vecs;//fitted tks
     TLorentzVector tktk_4vec;//fitted D
@@ -1881,7 +1906,9 @@ void Dfinder::BranchOutNTk(//input 2~4 tracks
         DInfo.pz[DInfo.size]              = tktk_4vec.Pz();
         DInfo.MaxDoca[DInfo.size]         = MaximumDoca;
 
-        VertexDistance3D a3d;
+        //for 2D distance
+		VertexDistanceXY axy;
+		VertexDistance3D a3d;
         //https://github.com/cms-sw/cmssw/blob/CMSSW_7_5_0/RecoVertex/VertexTools/src/VertexDistance3D.cc
         DInfo.svpvDistance[DInfo.size] = a3d.distance(thePrimaryV,tktk_VFPvtx->vertexState()).value();
         DInfo.svpvDisErr[DInfo.size] = a3d.distance(thePrimaryV,tktk_VFPvtx->vertexState()).error();
@@ -1891,7 +1918,27 @@ void Dfinder::BranchOutNTk(//input 2~4 tracks
 			DMassCutLevel[Dchannel_number-1]->Fill(12);
 		}
 
-        reco::Vertex::Point vp1(thePrimaryV.position().x(), thePrimaryV.position().y(), 0.);
+		////for DCA and its error
+		tsos = extrapolator.extrapolate(tktk_VFP->currentState().freeTrajectoryState(),RecoVertex::convertPos(thePrimaryV.position()));
+		tsos_2D = transverseExtrapolator.extrapolate(tktk_VFP->currentState().freeTrajectoryState(),RecoVertex::convertPos(theBeamSpotV.position()));//for BS DCA
+		Measurement1D cur3DIP;
+		Measurement1D cur2DIP;
+		GlobalPoint refPoint          = tsos.globalPosition();
+		GlobalError refPointErr       = tsos.cartesianError().position();
+		GlobalPoint vertexPosition    = RecoVertex::convertPos(thePrimaryV.position());
+		GlobalError vertexPositionErr = RecoVertex::convertError(thePrimaryV.error());
+		cur3DIP =  (a3d.distance(VertexState(vertexPosition,vertexPositionErr), VertexState(refPoint, refPointErr)));
+		GlobalPoint refPoint_2D          = tsos_2D.globalPosition();
+		GlobalError refPointErr_2D       = tsos_2D.cartesianError().position();
+		GlobalPoint vertexPosition_2D    = RecoVertex::convertPos(theBeamSpotV.position());
+		GlobalError vertexPositionErr_2D = RecoVertex::convertError(theBeamSpotV.error());
+		cur2DIP = axy.distance(VertexState(refPoint_2D, refPointErr_2D),VertexState(vertexPosition_2D,vertexPositionErr_2D));
+		
+		std::cout<<"DCA value:  "<<cur3DIP.value()<<std::endl;
+
+
+        //////
+		reco::Vertex::Point vp1(thePrimaryV.position().x(), thePrimaryV.position().y(), 0.);
         reco::Vertex::Point vp2(tktk_VFPvtx->vertexState().position().x(), tktk_VFPvtx->vertexState().position().y(), 0.);
         ROOT::Math::SVector<double, 6> sv1(thePrimaryV.covariance(0,0), thePrimaryV.covariance(0,1), thePrimaryV.covariance(1,1), 0., 0., 0.);
         ROOT::Math::SVector<double, 6> sv2(tktk_VFPvtx->vertexState().error().cxx(), tktk_VFPvtx->vertexState().error().cyx(), tktk_VFPvtx->vertexState().error().cyy(), 0., 0., 0.);
@@ -1901,6 +1948,12 @@ void Dfinder::BranchOutNTk(//input 2~4 tracks
         reco::Vertex v2(vp2, ve2);
         DInfo.svpvDistance_2D[DInfo.size] = a3d.distance(v1, v2).value();
         DInfo.svpvDisErr_2D[DInfo.size] = a3d.distance(v1, v2).error();
+
+		//3D dca and it error
+		DInfo.ip3d[DInfo.size]            = cur3DIP.value();
+		DInfo.ip3derr[DInfo.size]         = cur3DIP.error();
+		DInfo.ip2d_BS[DInfo.size]         = cur2DIP.value();
+		DInfo.ip2d_BS_err[DInfo.size]     = cur2DIP.error();
 
         DInfo.vtxX[DInfo.size]            = tktk_VFPvtx->position().x();
         DInfo.vtxY[DInfo.size]            = tktk_VFPvtx->position().y();
@@ -1978,6 +2031,11 @@ void Dfinder::BranchOutNTk(//input 2~4 tracks
         DInfo.size++;
 
     }
+	/*
+	auto t1 = std::chrono::high_resolution_clock::now(); 
+	double dt = 1e-3 * std::chrono::duration_cast<chrono::microseconds>(t1 - t0).count();
+	std::cout<<"duration: "<<dt<<std::endl;
+*/
 }
 //}}}
 
