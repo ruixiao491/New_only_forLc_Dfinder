@@ -1,7 +1,4 @@
 // vim:set ts=4 sw=4 fdm=marker et:
-// Ntuplt creator for D meson related analysis.
-// Maintain and contact: ta-wei wang
-// Email: "tawei@mit.edu" or "ta-wei.wang@cern.ch"
 #include "Bfinder/Bfinder/interface/format.h"
 #include "Bfinder/Bfinder/interface/Dntuple.h"
 #include "Bfinder/Bfinder/interface/utilities.h"
